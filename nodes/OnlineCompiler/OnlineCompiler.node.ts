@@ -103,7 +103,9 @@ export class OnlineCompiler implements INodeType {
 						routing: {
 							request: {
 								method: 'GET',
-								url: '/api/compilers/',
+								// A full URL: when the node runs as an AI Agent tool, n8n loads these options
+								// without the node's requestDefaults, so a relative URL has no base.
+								url: 'https://api.onlinecompiler.io/api/compilers/',
 							},
 							output: {
 								postReceive: [
